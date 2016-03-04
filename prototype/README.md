@@ -8,18 +8,8 @@
 * 原型方法
 
 > //对象方法
-    function People(name){
-    this.name=name;
-    //对象方法
-    this.Introduce=function(){
-    alert("My name is "+this.name);
+    #!javascript
+    function hi(){
+        alert('hi!');
     }
-    }
-    //原型方法
-    People.prototype.IntroduceChinese=function(){
-    alert("我的名字是"+this.name);
-    }
-    //类方法
-    People.Run=function(){
-    alert("I can run");
-    }
+
