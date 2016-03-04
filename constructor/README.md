@@ -31,4 +31,14 @@
      console.log(obj);//输出
 > ![对象实例结果][1]
 
+### 公有方法
+> * 适用于通过new关键字实例化的该对象的每个实例
+* 向prototype中添加成员将会把新方法添加到构造函数的底层中去
+    myObject.prototype.sayHello = function(){
+        alert('hello everyone!');
+    }
+    console.log(obj);
+>![给prototype添加成员][2]
+
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/ii.png
+[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/iii.png
