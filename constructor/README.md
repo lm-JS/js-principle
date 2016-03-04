@@ -29,7 +29,6 @@
     }
      var obj = new myObject("浪漫");
      console.log(obj);//输出
-     
 > ![对象实例结果][1]
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/ii.png
