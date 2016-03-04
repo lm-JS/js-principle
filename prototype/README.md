@@ -4,10 +4,11 @@
 
 ### javascript的方法可以分为三类：
 > * 类方法  
-*  对象方法
+* 对象方法
 * 原型方法
 
->   function People(name){
+> //对象方法
+    function People(name){
     this.name=name;
     //对象方法
     this.Introduce=function(){
