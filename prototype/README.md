@@ -7,7 +7,7 @@
 * 对象方法
 * 原型方法
 
-> //对象方法
+#### //对象方法
     #!javascript
     function hi(){
         alert('hi!');
