@@ -8,12 +8,12 @@
   alert("I can run");
   }
 *  对象方法
-    function People(name){
-    this.name=name;
-    //对象方法
-    this.Introduce=function(){
-      alert("My name is "+this.name);
-    }
+  function People(name){
+  this.name=name;
+  //对象方法
+  this.Introduce=function(){
+  alert("My name is "+this.name);
+  }
   }
 * 原型方法
   //原型方法
