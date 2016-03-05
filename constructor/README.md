@@ -34,6 +34,7 @@
 ### 公有方法
 > * 适用于通过new关键字实例化的该对象的每个实例
 * 向prototype中添加成员将会把新方法添加到构造函数的底层中去
+
     myObject.prototype.sayHello = function(){
         alert('hello everyone!');
     }
