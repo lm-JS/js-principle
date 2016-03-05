@@ -19,9 +19,8 @@
     console.log(dog.__proto__);
     console.log(Animal.prototype===dog.__proto__); //判断__proto__是否引用 Animal.prototype,  true;
 
-> ![一个Animal实例][1]
-![Animal.prototype][2]
-![dog.__proto__][3]
+> ![__proto__是指向其原型对象的引用][1]
+
 
 
 
