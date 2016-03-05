@@ -9,7 +9,7 @@
     /*******************************
      * new操作符的操作是
      * var dog = {} //初始化一个对象p
-     * p.\_\_proto\_\_ =  Animal.prototype //将Animal方法（也是一个对象）的prototype属性给\_\_proto\_\_
+     * p.__proto__ =  Animal.prototype //将Animal方法（也是一个对象）的prototype属性给__proto__
      * Animal.call(p) //用p对象引用Animal方法中的this对象;
      * ***********************************************/
 ### 例子1：
