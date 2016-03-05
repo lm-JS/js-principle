@@ -37,7 +37,7 @@
     myObject.prototype.sayHello = function(){
         alert('hello everyone!');
     }
-    console.log(obj);
+    console.log(obj);  
 >![给prototype添加成员][2]
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/ii.png
