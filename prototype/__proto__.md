@@ -22,13 +22,14 @@
         alert("rname: "+this.name);
     };
     //建一个Animal实例
-    var dog = new Animal("小黄");
+    var dog = new Animal("小黄");//可以得出dog.__proto__=Animal.prototype
+    dog.getInfo();//调用dog.getInfo()时，首先dog中没有getInfo这个属性，于是，他就需要到他的__proto__中去找，也就是Animal.prototype，而     我们在上面定义了Animal.prototype.getInfo=function(){}; 于是，就找到了这个方法。
     console.log(dog);
     console.log(Animal.prototype);
     console.log(dog.__proto__);
     console.log(Animal.prototype===dog.__proto__); //判断__proto__是否引用 Animal.prototype,  true;
 
-> 水电费发放 阿瑟大学生发生的发生非法为撒防范大风电费vdsfefwsfdcsdff我发的是发顺丰的的地方的废物的分违法刚发给哥哥哥哥给答复![__proto__是指向其原型对象的引用][1]
+> ![__proto__是指向其原型对象的引用][1]
 
 
 
