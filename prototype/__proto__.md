@@ -11,7 +11,7 @@
      * p.__proto__ =  Animal.prototype //将Animal方法（也是一个对象）的prototype属性给__proto__
      * Animal.call(p) //用p对象引用Animal方法中的this对象;
      * ***********************************************/
-
+### 例子1：
     //定义类方法
     function Animal(name) {
         var age = 10;
