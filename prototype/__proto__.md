@@ -33,7 +33,9 @@
 
 > ![\_\_proto\_\_是指向其原型对象的引用][1]
 
-
+### prototype 与 \_\_proto\_\_的区别：
+> * \_\_proto\_\_是JS内部使用寻找原型链的属性。 
+* prototype是显示修改对象的原型的属性。 
 
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/i.png
