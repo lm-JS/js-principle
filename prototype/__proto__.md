@@ -28,7 +28,7 @@
     console.log(dog.__proto__);
     console.log(Animal.prototype===dog.__proto__); //判断__proto__是否引用 Animal.prototype,  true;
 
-> ![__proto__是指向其原型对象的引用][1]
+> 水电费发放 阿瑟大学生发生的发生非法为撒防范大风电费vdsfefwsfdcsdff我发的是发顺丰的的地方的废物的分违法刚发给哥哥哥哥给答复![__proto__是指向其原型对象的引用][1]
 
 
 
