@@ -71,6 +71,7 @@
 > * \_\_proto\_\_是JS内部使用寻找原型链的属性。 
 * prototype是显式修改对象的原型的属性。 
 
+![prototyoe图][2]
 > 1. 构造函数Foo()
 构造函数的原型属性Foo.prototype指向了原型对象，在原型对象里有共有的方法，所有构造函数声明的实例（这里是f1，f2）都可以共享这个方法。
 2. 原型对象Foo.prototype
@@ -88,5 +89,5 @@ f1和f2是Foo这个对象的两个实例，这两个对象也有属性__proto__�
 
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/i.png
-[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/ii.png
+[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/e83bca5f1d1e6bf359d1f75727968c11_b.jpg
 [3]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/iii.png
