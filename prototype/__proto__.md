@@ -89,5 +89,5 @@ f1和f2是Foo这个对象的两个实例，这两个对象也有属性__proto__�
 
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/i.png
-[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/e83bca5f1d1e6bf359d1f75727968c11_b.jpg
+[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/e83bca5f1d1e6bf359d1f75727968c11_b.jpg
 [3]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/iii.png
