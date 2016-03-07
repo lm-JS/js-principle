@@ -8,6 +8,8 @@
  ***因为对象都继承于Object方法,所有原型链的顶端就是Object.prototype;***  
  ***是谁的类型实例它的\_\_proto\_\_就是谁，反之亦然！***  
 　　\_\_proto\_\_成员严格的说这个成员不应该叫这个名字，\_\_proto\_\_是Firefox中的称呼，\_\_proto\_\_只有在Firefox浏览器中才能被访问到。
+### constructor
+> 原型对象也有一个属性，叫做constructor，这个属性包含了一个指针，指回原构造函数。
 
 ### 构造器/函数
 > * 所有构造器/函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）  
@@ -68,6 +70,21 @@
 ### prototype 与 \_\_proto\_\_的区别：
 > * \_\_proto\_\_是JS内部使用寻找原型链的属性。 
 * prototype是显式修改对象的原型的属性。 
+
+> 1. 构造函数Foo()
+构造函数的原型属性Foo.prototype指向了原型对象，在原型对象里有共有的方法，所有构造函数声明的实例（这里是f1，f2）都可以共享这个方法。
+2. 原型对象Foo.prototype
+Foo.prototype保存着实例共享的方法，有一个指针constructor指回构造函数。
+3. 实例
+f1和f2是Foo这个对象的两个实例，这两个对象也有属性__proto__，指向构造函数的原型对象，这样子就可以像上面1所说的访问原型对象的所有方法啦。
+4. 另外：
+构造函数Foo()除了是方法，也是对象啊，它也有__proto__属性，指向谁呢？
+指向它的构造函数的原型对象呗。函数的构造函数不就是Function嘛，因此这里的__proto__指向了Function.prototype。
+其实除了Foo()，Function(), Object()也是一样的道理。
+5. 原型对象也是对象啊，它的__proto__属性，又指向谁呢？
+同理，指向它的构造函数的原型对象呗。这里是Object.prototype.
+6. 最后，Object.prototype的__proto__属性指向null。
+
 
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/i.png
