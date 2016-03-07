@@ -10,7 +10,7 @@
 　　\_\_proto\_\_成员严格的说这个成员不应该叫这个名字，\_\_proto\_\_是Firefox中的称呼，\_\_proto\_\_只有在Firefox浏览器中才能被访问到。
 
 ### 构造器/函数
-> * 所有构造器/函数的__proto__都指向Function.prototype，它是一个空函数（Empty function）  
+> * 所有构造器/函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）  
 　　console.log(Function.prototype);  //function Empty();  
 　　console.log(Animal.\_\_proto\_\_);    //function Empty();  
 　　console.log(Function.prototype===Animal.\_\_proto\_\_)// true  
@@ -18,7 +18,7 @@
 　　console.log(Object.\_\_proto\_\_ === Function.prototype)//true  
 　　*说明了自定义/String等一些内置的构造器其实是Function的一个对象。 也就是说相当于 var String = new Function();* 
 　　*所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法*
-　　Math，JSON是以对象形式存在的，无需new。它们的__proto__是Object.prototype  
+　　Math，JSON是以对象形式存在的，无需new。它们\_\_proto\_\_是Object.prototype  
 　　console.log(Math.\_\_proto\_\_ === Object.prototype)// true  
 　　console.log(JSON.\_\_proto\_\_ === Object.prototype)// true  
 　　Function.prototype也是唯一一个typeof XXX.prototype为 “function”的prototype。其它的构造器的prototype都是一个对象  
