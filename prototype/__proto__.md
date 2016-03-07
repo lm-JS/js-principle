@@ -19,10 +19,15 @@
 　　Math，JSON是以对象形式存在的，无需new。它们的__proto__是Object.prototype  
 　　console.log(Math.__proto__ === Object.prototype)// true  
 　　console.log(JSON.__proto__ === Object.prototype)// true  
-　　但是Object.__proto__ === Function.prototype//true,说明所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法
+　　但是Object.__proto__ === Function.prototype//true,说明所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法。那Function.prototype的__proto__是谁呢？  
+　　console.log(Function.prototype.__proto__ === Object.prototype)//true  
+　　这说明所有的构造器也都是一个普通JS对象，可以给构造器添加/删除属性等。同时它也继承了Object.prototype上的所有方法：toString、valueOf、hasOwnProperty等。最后Object.prototype的__proto__是谁？  
+　　Object.prototype.__proto__ === null //true已经到顶了，为null。  
+　　Function.prototype也是唯一一个typeof XXX.prototype为 “function”的prototype。其它的构造器的prototype都是一个对象  
+　　console.log(typeof Function.prototype)//function  
+　　console.log(typeof Number.prototype)// object  
 
 
- 
  
  
 ### new操作符
