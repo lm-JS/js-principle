@@ -6,7 +6,14 @@
  每个对象都有一个\_\_proto\_\_属性,当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去\_\_proto\_\_里找这个属性，这个\_\_proto\_\_又会有自己的\_\_proto\_\_，于是就这样一直找下去，也就是我们平时所说的**原型链的概念**。  
  ***因为对象都继承于Object方法,所有原型链的顶端就是Object.prototype;***  
  ***是谁的类型实例它的\_\_proto\_\_就是谁，反之亦然！***
-* 所有构造器/函数的__proto__都指向Function.prototype，它是一个空函数（Empty function）
+* 所有构造器/函数的__proto__都指向Function.prototype，它是一个空函数（Empty function）  
+　　console.log(Function.prototype);  //function Empty();  
+　　console.log(Animal.\_\_proto\_\_);    //function Empty();  
+　　console.log(Function.prototype===Animal.\_\_proto\_\_)// true  
+　　console.log(String.\_\_proto\_\_ === Function.prototype)// ture  
+　　*说明了String等都是构造器，这些构造器其实是Function的一个对象。 也就是说相当于 var Number = new Function();*
+
+
  
  
  
