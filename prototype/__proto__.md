@@ -1,17 +1,25 @@
-### prototype 和 \_\_proto\_\_(原型链)
+# prototype 和 \_\_proto\_\_(原型链)
+
+### prototype
+> * prototype属性只有函数才有，其他类型的对象没有，一个函数如果当做构造函数来使用，它的对象不仅包含本身的对象和方法，还有个\_\_proto\_\_属性，\_\_proto\_\_ 指向这个函数的prototype。除了prototype自定义的属性和方法，还包含构造函数和父对象的\_\_proto\_\_;
+
+### \_\_proto\_\_是指向其原型对象的引用!  
+> 每个对象都有一个\_\_proto\_\_属性,当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去\_\_proto\_\_里找这个属性，这个\_\_proto\_\_又会有自己的\_\_proto\_\_，于是就这样一直找下去，也就是我们平时所说的**原型链的概念**。  
+ ***因为对象都继承于Object方法,所有原型链的顶端就是Object.prototype;***  
+ ***是谁的类型实例它的\_\_proto\_\_就是谁，反之亦然！***  
 　　\_\_proto\_\_成员严格的说这个成员不应该叫这个名字，\_\_proto\_\_是Firefox中的称呼，\_\_proto\_\_只有在Firefox浏览器中才能被访问到。
 　
-> * prototype属性只有函数才有，其他类型的对象没有，一个函数如果当做构造函数来使用，它的对象不仅包含本身的对象和方法，还有个\_\_proto\_\_属性，\_\_proto\_\_ 指向这个函数的prototype。除了prototype自定义的属性和方法，还包含构造函数和父对象的\_\_proto\_\_;
-* \_\_proto\_\_是指向其原型对象的引用!  
- 每个对象都有一个\_\_proto\_\_属性,当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去\_\_proto\_\_里找这个属性，这个\_\_proto\_\_又会有自己的\_\_proto\_\_，于是就这样一直找下去，也就是我们平时所说的**原型链的概念**。  
- ***因为对象都继承于Object方法,所有原型链的顶端就是Object.prototype;***  
- ***是谁的类型实例它的\_\_proto\_\_就是谁，反之亦然！***
-* 所有构造器/函数的__proto__都指向Function.prototype，它是一个空函数（Empty function）  
+### 构造器/函数
+> * 所有构造器/函数的__proto__都指向Function.prototype，它是一个空函数（Empty function）  
 　　console.log(Function.prototype);  //function Empty();  
 　　console.log(Animal.\_\_proto\_\_);    //function Empty();  
 　　console.log(Function.prototype===Animal.\_\_proto\_\_)// true  
 　　console.log(String.\_\_proto\_\_ === Function.prototype)// ture  
-　　*说明了String等都是构造器，这些构造器其实是Function的一个对象。 也就是说相当于 var Number = new Function();*
+　　*说明了String等都是构造器，这些构造器其实是Function的一个对象。 也就是说相当于 var String = new Function();*  
+　　Math，JSON是以对象形式存在的，无需new。它们的__proto__是Object.prototype  
+　　console.log(Math.__proto__ === Object.prototype)// true  
+　　console.log(JSON.__proto__ === Object.prototype)// true  
+　　但是Object.__proto__ === Function.prototype//true,说明所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法
 
 
  
