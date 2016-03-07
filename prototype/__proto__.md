@@ -29,7 +29,7 @@
 　　这说明所有的构造器也都是一个普通JS对象，可以给构造器添加/删除属性等。同时它也继承了Object.prototype上的所有方法：toString、valueOf、hasOwnProperty等。
 * Object.prototype的__proto__是谁?
 
->     Object.prototype.__proto__ === null //true已经到顶了，为null。  
+> ``` Object.prototype.__proto__ === null //true已经到顶了，为null。  
 
 
 
