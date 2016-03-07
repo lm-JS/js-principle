@@ -29,3 +29,14 @@
     Fish.prototype = new Animal("金鱼");
     dog.swimming();
     fish1.swimming();
+    
+    //2.判断
+    function Foo(){}
+    var foo = new Foo()
+    Foo.prototype.__proto__ === Object.prototype //true 理由同上
+    function Bar(){}
+    //这时我们想让Foo继承Bar
+    Foo.prototype = new Bar()
+    Foo.prototype.__proto__ === Bar.prototype //true
+
+
