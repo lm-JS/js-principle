@@ -8,7 +8,7 @@
  ***因为对象都继承于Object方法,所有原型链的顶端就是Object.prototype;***  
  ***是谁的类型实例它的\_\_proto\_\_就是谁，反之亦然！***  
 　　\_\_proto\_\_成员严格的说这个成员不应该叫这个名字，\_\_proto\_\_是Firefox中的称呼，\_\_proto\_\_只有在Firefox浏览器中才能被访问到。
-　
+
 ### 构造器/函数
 > * 所有构造器/函数的__proto__都指向Function.prototype，它是一个空函数（Empty function）  
 　　console.log(Function.prototype);  //function Empty();  
