@@ -16,8 +16,7 @@
 　　console.log(Function.prototype===Animal.\_\_proto\_\_)// true  
 　　console.log(String.\_\_proto\_\_ === Function.prototype)// ture  
 　　console.log(Object.\_\_proto\_\_ === Function.prototype)//true  
-　　*说明了自定义/String等一些内置的构造器其实是Function的一个对象。 也就是说相当于 var String = new Function();* 
-　　*所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法*
+　　*说明了自定义/String等一些内置的构造器其实是Function的一个对象。 也就是说相当于 var String = new Function();所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法*  
 　　Math，JSON是以对象形式存在的，无需new。它们\_\_proto\_\_是Object.prototype  
 　　console.log(Math.\_\_proto\_\_ === Object.prototype)// true  
 　　console.log(JSON.\_\_proto\_\_ === Object.prototype)// true  
