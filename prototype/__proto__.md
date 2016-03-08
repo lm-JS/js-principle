@@ -9,11 +9,43 @@
  ***因为对象都继承于Object方法,所有原型链的顶端就是Object.prototype;***  
  ***是谁的类型实例它的\_\_proto\_\_就是谁，反之亦然！***  
 　　\_\_proto\_\_成员严格的说这个成员不应该叫这个名字，\_\_proto\_\_是Firefox中的称呼，\_\_proto\_\_只有在Firefox浏览器中才能被访问到。
-### constructor
-> 原型对象也有一个属性，叫做constructor，这个属性包含了一个指针，指回原构造函数。
 
 ### 构造器/函数
-> * 所有构造器/函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）  
+> * 使自己的对象多次复制，同时实例根据设置的访问等级可以访问其内部的属性和方法
+* 当对象被实例化后，构造函数会立即执行它所包含的任何代码
+* 原型对象也有一个属性，叫做constructor，这个属性包含了一个指针，指回原构造函数。
+
+    function myObject(msg){
+        //特权属性(公有属性)
+        this.myMsg = msg; //只在被实例化后的实例中可调用
+        this.address = '上海';
+    
+          //私有属性
+          var name = '豪情';
+          var age = 29;
+          var that = this;
+         
+          //私有方法
+          function sayName(){
+             alert(that.name);
+          }
+          //公有方法,能被外部公开访问
+          //这个方法每次实例化都要重新构造,因而实例越多占用的内存越多,而prototype是原型共享，所有实例化后，都共同引用同一个
+          this.sayAge = function(){
+             alert(name); //在公有方法中可以访问私有成员
+          }
+    }
+     var obj = new myObject("浪漫");
+     //静态属性
+      myObject.name = 'china';
+    //静态方法
+    myObject.alertname = function(){
+        alert(this.name);
+    }
+    console.log(obj);  
+     
+
+* 所有构造器/函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）  
 　　console.log(Function.prototype);  //function Empty();  
 　　console.log(Animal.\_\_proto\_\_);    //function Empty();  
 　　console.log(Function.prototype===Animal.\_\_proto\_\_)// true  
