@@ -41,5 +41,17 @@
     console.log(obj);  
 >![给prototype添加成员][2]
 
+### 静态属性
+> * 适用于对象的特殊实例，就是作为Function对象实例的构造函数本身
+ 
+    myObject.name = 'china';
+    //静态方法
+    myObject.alertname = function(){
+        alert(this.name);
+    }
+    console.log(obj);  
+>![给prototype添加静态属性][3]
+
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/ii.png
 [2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/iii.png
+[3]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/iiii.png
