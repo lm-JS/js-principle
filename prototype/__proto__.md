@@ -42,7 +42,8 @@
     myObject.alertname = function(){
         alert(this.name);
     }
-    console.log(obj);  
+    //obj 想访问类的静态属性，先访问该实例的构造函数，然后在访问该类静态属性
+    console.log(obj.constructor.name);  
 
 ### Function 与 Object 
 > * Function是所有函数对象的基础，而Object则是所有对象（包括函数对象）的基础
