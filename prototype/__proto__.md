@@ -43,26 +43,6 @@
         alert(this.name);
     }
     console.log(obj);  
-     
-
-* 所有构造器/函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）  
-　　console.log(Function.prototype);  //function Empty();  
-　　console.log(Animal.\_\_proto\_\_);    //function Empty();  
-　　console.log(Function.prototype===Animal.\_\_proto\_\_)// true  
-　　console.log(String.\_\_proto\_\_ === Function.prototype)// ture  
-　　console.log(Object.\_\_proto\_\_ === Function.prototype)//true  
-　　*说明了自定义/String等一些内置的构造器其实是Function的一个对象。 也就是说相当于 var String = new Function();所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法*  
-　　Math，JSON是以对象形式存在的，无需new。它们\_\_proto\_\_是Object.prototype  
-　　console.log(Math.\_\_proto\_\_ === Object.prototype)// true  
-　　console.log(JSON.\_\_proto\_\_ === Object.prototype)// true  
-　　Function.prototype也是唯一一个typeof XXX.prototype为 “function”的prototype。其它的构造器的prototype都是一个对象  
-　　console.log(typeof Function.prototype)//function  
-　　console.log(typeof Number.prototype)// object  
-* Function.prototype的\_\_proto\_\_是谁呢？  
-　　console.log(Function.prototype.\_\_proto\_\_ === Object.prototype)//true  
-　　这说明所有的构造器也都是一个普通JS对象，可以给构造器添加/删除属性等。同时它也继承了Object.prototype上的所有方法：toString、valueOf、hasOwnProperty等。
-* Object.prototype的\_\_proto\_\_是谁?  
-　　Object.prototype.\_\_proto\_\_ === null //true已经到顶了，为null。  
 
 ### Function 与 Object 
 > * Function是所有函数对象的基础，而Object则是所有对象（包括函数对象）的基础
@@ -100,9 +80,27 @@
 
 > ![\_\_proto\_\_是指向其原型对象的引用][1]
 
-### prototype 与 \_\_proto\_\_的区别：
+### prototype 与 \_\_proto\_\_的关系：
 > * \_\_proto\_\_是JS内部使用寻找原型链的属性。 
-* prototype是显式修改对象的原型的属性。 
+* prototype是显式修改对象的原型的属性。
+* 所有构造器/函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）  
+　　console.log(Function.prototype);  //function Empty();  
+　　console.log(Animal.\_\_proto\_\_);    //function Empty();  
+　　console.log(Function.prototype===Animal.\_\_proto\_\_)// true  
+　　console.log(String.\_\_proto\_\_ === Function.prototype)// ture  
+　　console.log(Object.\_\_proto\_\_ === Function.prototype)//true  
+　　*说明了自定义/String等一些内置的构造器其实是Function的一个对象。 也就是说相当于 var String = new Function();所有的构造器都来自于Function.prototype，所有构造器都继承了Function.prototype的属性及方法*  
+　　Math，JSON是以对象形式存在的，无需new。它们\_\_proto\_\_是Object.prototype  
+　　console.log(Math.\_\_proto\_\_ === Object.prototype)// true  
+　　console.log(JSON.\_\_proto\_\_ === Object.prototype)// true  
+　　Function.prototype也是唯一一个typeof XXX.prototype为 “function”的prototype。其它的构造器的prototype都是一个对象  
+　　console.log(typeof Function.prototype)//function  
+　　console.log(typeof Number.prototype)// object  
+* Function.prototype的\_\_proto\_\_是谁呢？  
+　　console.log(Function.prototype.\_\_proto\_\_ === Object.prototype)//true  
+　　这说明所有的构造器也都是一个普通JS对象，可以给构造器添加/删除属性等。同时它也继承了Object.prototype上的所有方法：toString、valueOf、hasOwnProperty等。
+* Object.prototype的\_\_proto\_\_是谁?  
+　　Object.prototype.\_\_proto\_\_ === null //true已经到顶了，为null。 
 
 ![prototyoe图][2]
 > 1. 构造函数Foo()
