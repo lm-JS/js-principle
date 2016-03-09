@@ -65,7 +65,21 @@
     person.showPerson();
 </script>
 
+### Call和apply是改变函数的作用域
 
-[1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/ii.png
+    var name = "sharpxiajun";
+    function ftn(name){
+        console.log(name);
+        console.log(this.name);
+        console.log(this);
+    }
+    ftn("101");//
+    var obj = {
+      name:"xtq"
+    };
+    ftn.call(obj,"102");
+
+![call运行结果][1]
+[1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/k.png
 [2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/iii.png
 [3]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/iiii.png
