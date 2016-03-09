@@ -1,6 +1,7 @@
 # Javascript 预编译
-
+　　javascript代码在运行前有一个过程就是：预加载，预加载的目的是要事先构造运行环境例如全局环境，函数运行环境，还要构造作用域链，而环境和作用域的构造的核心内容就是指定好变量属于哪个范畴，因此在javascript语言里变量的定义是在预加载完成而非在运行时期。
 ### JavaScript变量
+   　javascript的变量是一个松散的类型，松散类型变量的特点是变量定义时候不需要指定变量的类型，变量在运行时候可以随便改变数据的类型，但是这种特性并不代表javascript变量没有类型，当变量类型被确定后javascript的变量也是有类型的。但是在现实中，很多程序员把javascript松散类型理解为了javascript变量是可以随意定义即你可以不用var定义，也可以使用var定义，其实在javascript语言里变量定义没有使用var，变量必须有赋值操作，只有赋值操作的变量是赋予给window，这其实是javascript语言设计者提升javascript安全性的一个做法。
 > **分为基本类型和引用类型**
 * 基本数据类型代表原始数据类型的值，即Undefined,Null,Number,String,Boolean类型所表示的值
 * 引用值指的就是复合数据类型的值，即Object,Function,Array,以及自定义对象,等等
