@@ -48,6 +48,27 @@
 ### Function 与 Object 
 > * Function是所有函数对象的基础，而Object则是所有对象（包括函数对象）的基础
 * 在JavaScript中，任何一个对象都是Object的实例，可以修改Object这个类型来让所有的对象具有一些通用的属性和方法
+    //扩展Object的原型  
+    Object.prototype.extend="123";  
+    console.log("Function:"+Function.extend);//在Function中出现了extend属性  
+    console.log("Object:"+Object.extend);//在Object中出现了extend属性，此时Object还是个Function  
+    var obj=new Object;  
+    console.log("Object instance:"+obj.extend);//在obj中扩展了extend，此时的obj是object  
+    function Foo(){}  
+    var foo = new Foo;  
+    console.log("foo object:"+foo.extend);//foo对象上扩展上了extend属性  
+    console.log("Foo Function:"+Foo.extend);//函数上也扩展上了extend属性  
+    Function.prototype.test4extend="123";//扩展Function的原型 
+    //在Function中出现了test4extend属性  
+    console.log("Function:"+Function.extend);  
+    console.log("Object:"+Object.extend);//在Object中出现了extend属性，注意此时Object是个Function  
+    var obj=new Object;  
+    console.log("Object instance:"+obj.extend);//在obj中没有扩展上extend，此时的obj是object  
+    function Foo(){}  
+    var foo = new Foo;  
+    console.log("foo object:"+foo.extend);//foo对象上没有扩展上extend  
+    console.log("Foo Function:"+Foo.extend);//Function扩展上了extend属性  
+    说明Function只管没有被实例化得，被实例化的，他是没有办法管的。与Object不同，Object是无论是否实例化都管的。  
 * 用 typeof得到一个函数对象的类型,返回字符串“function”的对象叫函数对象
 * 函数对象与普通对象的区别是：它不仅是对象，同时也是对象构造器，可以new一个函数来返回一个对象，这样的对象也叫构造器。
 * arguments对象存储的是实际传递给函数的参数，而不局限于函数声明所定义的参数列表
@@ -82,6 +103,7 @@
 > ![\_\_proto\_\_是指向其原型对象的引用][1]
 
 ### prototype 与 \_\_proto\_\_的关系：
+    function定义的对象有一个prototype属性，使用new生成的对象就没有这个prototype属性
 > * \_\_proto\_\_是JS内部使用寻找原型链的属性。 
 * prototype是显式修改对象的原型的属性。
 * 所有构造器/函数的\_\_proto\_\_都指向Function.prototype，它是一个空函数（Empty function）  
