@@ -37,7 +37,11 @@
    console.log(xxx);  
    //运行时会报错，xxx is not defined!虽然JavaScript中可以不用var 定义变量，但是必须赋值，此时变量属于window对象，否则会报错
 
-
+### undefined 和 null
+> 当变量的值为undefined时候，那么该变量只有栈区的标示符，如果我们对undefined的变量进行赋值操作，如果值是基本类型，那么栈区的值就有值了，如果栈区是对象那么堆区会有一个对象，而栈区的值则是堆区对象的地址，如果变量值是null的话，我们很自然认为这个变量是对象，而且是个空对象，按照我前面讲到的变量存储的三部分考虑：当变量为null时候，栈区的标示符和值都会有值，堆区应该也有，只不过堆区是个空对象，这么说来null其实比undefined更耗内存了!  
+    console.lo(null == undefined);// 运行结果：true  
+    console.lo(null === undefined);// 运行结果：false  
+    javascript里undefined类型源自于null即null是undefined的父类，本质上null和undefined除了名字这个马甲不同，其他都是一样的，不过要让一个变量是null时候必须使用等号“=”进行赋值了。
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/js-pre-compilation/stack.jpg
 [2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/js-pre-compilation/heap.jpg
