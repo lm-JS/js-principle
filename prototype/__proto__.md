@@ -79,7 +79,7 @@
     var foo = new Foo;  
     console.log("foo object:"+foo.extend);//foo对象上没有扩展上extend  
     console.log("Foo Function:"+Foo.extend);//Function扩展上了extend属性  
-    说明Function只管没有被实例化得，被实例化的，他是没有办法管的。与Object不同，Object是无论是否实例化都管的。  
+**说明Function只管没有被实例化得，被实例化的，他是没有办法管的。与Object不同，Object是无论是否实例化都管的。** 
  
  
 ### 例子1：
