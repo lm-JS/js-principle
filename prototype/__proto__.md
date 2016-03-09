@@ -59,7 +59,7 @@
 * 用 typeof得到一个函数对象的类型,返回字符串“function”的对象叫函数对象
 * 函数对象与普通对象的区别是：它不仅是对象，同时也是对象构造器，可以new一个函数来返回一个对象，这样的对象也叫构造器。
 * arguments对象存储的是实际传递给函数的参数，而不局限于函数声明所定义的参数列表  
-    //扩展Object的原型  
+    **//扩展Object的原型**  
     Object.prototype.extend="123";  
     console.log("Function:"+Function.extend);//在Function中出现了extend属性  
     console.log("Object:"+Object.extend);//在Object中出现了extend属性，此时Object还是个Function  
@@ -70,7 +70,7 @@
     console.log("foo object:"+foo.extend);//foo对象上扩展上了extend属性  
     console.log("Foo Function:"+Foo.extend);//函数上也扩展上了extend属性  
     Function.prototype.test4extend="123";//扩展Function的原型 
-    //在Function中出现了test4extend属性  
+    **//在Function中出现了extend属性**  
     console.log("Function:"+Function.extend);  
     console.log("Object:"+Object.extend);//在Object中出现了extend属性，注意此时Object是个Function  
     var obj=new Object;  
