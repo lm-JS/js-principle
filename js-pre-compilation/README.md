@@ -1,6 +1,6 @@
 # Javascript 预编译
 　　javascript代码在运行前有一个过程就是：预加载，预加载的目的是要事先构造运行环境例如全局环境，函数运行环境，还要构造作用域链，而环境和作用域的构造的核心内容就是指定好变量属于哪个范畴，因此在javascript语言里变量的定义是在预加载完成而非在运行时期。
-　　
+
    var a = 1;
    function hehe(){
         console.log(a);//undefined
