@@ -27,6 +27,7 @@
     }
     </script>
 ### this都是指向实例化对象
+    在全局执行环境里window就是上下文对象，那么在obj里局部作用域通过obj来代表了
 > * Javascript里通过字面量方式定义对象的方式是new Object的简写，二者是等价的。Object就是面向对象的类，{}里就是实例对象了
 * function既是函数又可以表示对象，function是函数时候还能当做构造函数，javascript的构造函数我常认为是把类和构造函数合二为一  
      **new操作符的操作是**
@@ -35,13 +36,35 @@
      3. 执行构造函数中的代码（为这个新对象添加属性）；
      4. 返回新对象
 
-    myObject.name = 'china';
-    //静态方法
-    myObject.alertname = function(){
-        alert(this.name);
+    <script type="text/javascript">
+    var obj = {
+        name:"sharpxiajun",
+        job:"Software",
+        show:function(){
+            console.log("Name:" + this.name + ";Job:" + this.job);
+            console.log(this);
+    // Object { name="sharpxiajun", job="Software", show=function()}
+        }
+    };
+    obj.show();//Name:sharpxiajun;Job:Software
+   function Person(name,sex,age,job){
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.job = job;
+        this.showPerson = function(){
+            console.log("姓名:" + this.name);
+            console.log("性别:" + this.sex);
+            console.log("年龄:" + this.age);
+            console.log("工作:" + this.job);
+            console.log(this);
+            // Person { name="马云", sex="男", age=46, 更多...}
+        }
     }
-    console.log(obj);  
->![给prototype添加静态属性][3]
+    var person = new Person("马云", "男", 46, "董事长");
+    person.showPerson();
+</script>
+
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/ii.png
 [2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/iii.png
