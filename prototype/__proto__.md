@@ -69,9 +69,9 @@
     var foo = new Foo;  
     console.log("foo object:"+foo.extend);//foo对象上扩展上了extend属性  
     console.log("Foo Function:"+Foo.extend);//函数上也扩展上了extend属性  
-    Function.prototype.extend="123";//扩展Function的原型  
-    **//在Function中出现了extend属性**  
-    console.log("Function:"+Function.extend);  
+    **//扩展Function的原型性**
+    Function.prototype.extend="123";  
+    console.log("Function:"+Function.extend);//在Function中出现了extend属  
     console.log("Object:"+Object.extend);//在Object中出现了extend属性，注意此时Object是个Function  
     var obj=new Object;  
     console.log("Object instance:"+obj.extend);//在obj中没有扩展上extend，此时的obj是object  
