@@ -1,49 +1,41 @@
-# js Constructor
+# JS this
+    this都是指向实例化对象
+### window对象与this对象
+> 在javascript语言里全局作用域可以理解为window对象，记住window是对象而不是类，也就是说window是被实例化的对象，这个实例化的过程是在页面加载时候由javascript引擎完成的，整个页面里的要素都被浓缩到这个window对象，因为程序员无法通过编程语言来控制和操作这个实例化过程，所以开发时候我们就没有构建这个this指针的感觉，常常会忽视它，这就是干扰我们在代码里理解this指针指向window的情形。
 
-### 构造函数
-> * 使自己的对象多次复制，同时实例根据设置的访问等级可以访问其内部的属性和方法
-* 当对象被实例化后，构造函数会立即执行它所包含的任何代码
+    <script type="text/javascript">
+    this.a = "aaa";
+    console.log(a);//aaa
+    console.log(this.a);//aaa
+    console.log(window.a);//aaa
+    console.log(this === window);// true
+    </script>
 
-    function myObject(msg){
-        //特权属性(公有属性)
-        this.myMsg = msg; //只在被实例化后的实例中可调用
-        this.address = '上海';
-     
-          //私有属性
-          var name = '豪情';
-          var age = 29;
-          var that = this;
-         
-          //私有方法
-          function sayName(){
-             alert(that.name);
-          }
-          //特权方法(公有方法)
-          //能被外部公开访问
-          //这个方法每次实例化都要重新构造而prototype是原型共享，所有实例化后，都共同引用同一个
-          this.sayAge = function(){
-             alert(name); //在公有方法中可以访问私有成员
-          }
-          //私有和特权成员在函数的内部，在构造函数创建的每个实例中都会包含同样的私有和特权成员的副本，
-          //因而实例越多占用的内存越多
+### 声明式function和表达式函数（变量接收了定义匿名函数时它返回的内存地址）
+> 在javascript语言通过声明函数方式定义函数，javascript引擎在预处理过程里就把函数定义和赋值操作都完成了，预处理是和执行环境相关，执行环境有两大类：全局执行环境和局部执行环境，执行环境是通过上下文变量体现的，其实这个过程都是在函数执行前完成，预处理就是构造执行环境的另一个说法，总而言之预处理和构造执行环境的主要目的就是明确变量定义，分清变量的边界，但是在全局作用域构造或者说全局变量预处理时候对于声明函数有些不同，声明函数会将变量定义和赋值操作同时完成，因此我们看到下面代码的运行结果。由于声明函数都会在全局作用域构造时候完成，因此声明函数都是window对象的属性，这就说明为什么我们不管在哪里声明函数，声明函数最终都是属于window对象的原因了。javascript变量名称不管在那个作用域有效，堆区的存储的函数都是在全局执行环境时候就被固定下来了，变量的名字只是一个指代而已。
+
+    <script type="text/javascript">
+    console.log(ftn01);
+    //ftn01()  注意：在firebug下这个打印结果是可以点击，点击后会显示函数的定义
+    console.log(ftn02); 
+    // undefined **在内存的栈区已经有了变量的名称，但是没有栈区的变量值，同时堆区是没有具体的对象,则为undefined**
+    function ftn01(){
+       console.log("I am ftn01!");
     }
-     var obj = new myObject("浪漫");
-     console.log(obj);//输出
-> ![对象实例结果][1]
-
-### 公有方法
-> * 适用于通过new关键字实例化的该对象的每个实例
-* 向prototype中添加成员将会把新方法添加到构造函数的底层中去
-
-    myObject.prototype.sayHello = function(){
-        alert('hello everyone!');
+    var ftn02 = function(){
+        console.log("I am ftn02!");
     }
-    console.log(obj);  
->![给prototype添加成员][2]
-
-### 静态属性
-> * 适用于对象的特殊实例，就是作为Function对象实例的构造函数本身
- 
+    </script>
+### this都是指向实例化对象
+> * Javascript里通过字面量方式定义对象的方式是new Object的简写，二者是等价的。Object就是面向对象的类，{}里就是实例对象了
+* function既是函数又可以表示对象，function是函数时候还能当做构造函数，javascript的构造函数我常认为是把类和构造函数合二为一
+    /*******************************
+     * new操作符的操作是
+     1. 创建一个新对象；
+     2. 将构造函数的作用域赋给新对象（因此this就指向了这个新对象）；
+     3. 执行构造函数中的代码（为这个新对象添加属性）；
+     4. 返回新对象
+     * ***********************************************/
     myObject.name = 'china';
     //静态方法
     myObject.alertname = function(){
