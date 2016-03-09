@@ -12,10 +12,11 @@
 > * 栈是一种后进先出的数据结构
 ![栈结构][1]
 
+堆是存放数据的基于散列算法的数据结构，在javascript中，引用值是存放在堆中的。
+![堆结构][2]
 
 
 
 
-
-
-[1]: 
+[1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/js-pre-compilation/stack.jpg
+[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/js-pre-compilation/heap.jpg
