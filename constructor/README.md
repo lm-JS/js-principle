@@ -47,7 +47,7 @@
         }
     };
     obj.show();//Name:sharpxiajun;Job:Software
-   function Person(name,sex,age,job){
+    function Person(name,sex,age,job){
         this.name = name;
         this.sex = sex;
         this.age = age;
