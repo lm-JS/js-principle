@@ -44,10 +44,21 @@
     }
     //obj 想访问类的静态属性，先访问该实例的构造函数，然后在访问该类静态属性
     console.log(obj.constructor.name);  
+### new操作符
+
+    /*******************************
+     * new操作符的操作是
+     * var dog = {} //初始化一个对象p
+     * p.__proto__ =  Animal.prototype //将Animal方法（也是一个对象）的prototype属性给__proto__
+     * Animal.call(p) //用p对象引用Animal方法中的this对象;
+     * ***********************************************/
 
 ### Function 与 Object 
 > * Function是所有函数对象的基础，而Object则是所有对象（包括函数对象）的基础
 * 在JavaScript中，任何一个对象都是Object的实例，可以修改Object这个类型来让所有的对象具有一些通用的属性和方法
+* 用 typeof得到一个函数对象的类型,返回字符串“function”的对象叫函数对象
+* 函数对象与普通对象的区别是：它不仅是对象，同时也是对象构造器，可以new一个函数来返回一个对象，这样的对象也叫构造器。
+* arguments对象存储的是实际传递给函数的参数，而不局限于函数声明所定义的参数列表  
     //扩展Object的原型  
     Object.prototype.extend="123";  
     console.log("Function:"+Function.extend);//在Function中出现了extend属性  
@@ -69,19 +80,8 @@
     console.log("foo object:"+foo.extend);//foo对象上没有扩展上extend  
     console.log("Foo Function:"+Foo.extend);//Function扩展上了extend属性  
     说明Function只管没有被实例化得，被实例化的，他是没有办法管的。与Object不同，Object是无论是否实例化都管的。  
-* 用 typeof得到一个函数对象的类型,返回字符串“function”的对象叫函数对象
-* 函数对象与普通对象的区别是：它不仅是对象，同时也是对象构造器，可以new一个函数来返回一个对象，这样的对象也叫构造器。
-* arguments对象存储的是实际传递给函数的参数，而不局限于函数声明所定义的参数列表
  
  
-### new操作符
-
-    /*******************************
-     * new操作符的操作是
-     * var dog = {} //初始化一个对象p
-     * p.__proto__ =  Animal.prototype //将Animal方法（也是一个对象）的prototype属性给__proto__
-     * Animal.call(p) //用p对象引用Animal方法中的this对象;
-     * ***********************************************/
 ### 例子1：
     //定义类方法
     function Animal(name) {
