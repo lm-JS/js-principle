@@ -21,7 +21,10 @@
   3. 堆区存储的对象。  
  变量不同的定义，这三个部分也会随之发生变化  
  var qqq;  
- console.log(qqq); // 运行结果：undefined  
+ console.log(qqq);  
+ // 运行结果：undefined,因为变量被命名了，但是还未初始化，此时在变量存储的内存里只拥有栈区的变量标示符而没有栈区的变量值，当然更没有堆区存储的对象。  
+ console.log(xxx);  
+ //运行时会报错，xxx is not defined!虽然JavaScript中可以不用var 定义变量，但是必须赋值，此时变量属于window对象，否则会报错
 
 
 
