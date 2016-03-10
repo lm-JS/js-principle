@@ -26,6 +26,15 @@
     console.log(b1);// 运行结果：b1
 
 　　这个例子我们发现，ftn2函数可以访问变量b1，b2，这个体现了有权访问的概念，当ftn1作用域里改变了b1的值并且把b1变量重新定义为ftn1的局部变量，那么ftn2访问到的b1就是ftn1的，ftn2访问到b1后就不会在全局作用域里查找b1了，这个体现了有序性。
+
+    var a = 1;
+    function hehe(){
+        console.log(a);//undefined
+        var a = 2;
+        console.log(a);// 2
+    }
+    hehe();
+　　上述代码在函数的局部作用域下变量a被重新定义了，在预加载时候a的作用域范围也就被框定了，a变量不再属于全局变量，而是属于函数作用域，只不过赋值操作是在运行期执行（这就是为什么javascript语言在运行时候会改变变量的类型，因为赋值操作是在运行期进行的），所以第一次使用a变量时候，a变量在局部作用域里没有被赋值，只有栈区的标示名称，因此结果就是undefined了。　　
 　
 ### window(全局执行环境)与 函数执行环境  
 > javascript里的执行环境有两类一类是全局执行环境，即window对象代表的全局环境，一类是函数代表的函数执行环境，这也就是我们常说的局部作用域。
@@ -155,14 +164,6 @@
     
 ![运行结果][2]
 
-    var a = 1;
-    function hehe(){
-        console.log(a);//undefined
-        var a = 2;
-        console.log(a);// 2
-    }
-    hehe();
-　　上述代码在函数的局部作用域下变量a被重新定义了，在预加载时候a的作用域范围也就被框定了，a变量不再属于全局变量，而是属于函数作用域，只不过赋值操作是在运行期执行（这就是为什么javascript语言在运行时候会改变变量的类型，因为赋值操作是在运行期进行的），所以第一次使用a变量时候，a变量在局部作用域里没有被赋值，只有栈区的标示名称，因此结果就是undefined了。
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/k.png
 [2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/kk.png
