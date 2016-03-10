@@ -108,7 +108,8 @@
     }
     var person = new Person("马云", "男", 46, "董事长");
     person.showPerson();
-</script>
+    </script>
+    Object对象的本质也是个function，所以当我们调用对象里的函数时候，函数的外部执行环境就是obj本身，即外部执行环境上下文变量代表的就是obj，那么this指针也是指向了obj。
 
 ### Call和apply是改变函数的作用域
 
