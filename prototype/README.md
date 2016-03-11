@@ -3,6 +3,7 @@
 ### prototype
 > * prototype是通过调用构造函数创建的那个对象的原型对象(\_\_proto\_\_),实现原型链调用;只有函数对象才有(除了Function.prototype没有)，其他类型的对象没有。一个函数如果当做构造函数来使用，它的对象不仅包含本身的对象和方法，还有个\_\_proto\_\_属性，\_\_proto\_\_ 指向这个函数的prototype。
 * 使用原型的好处是可以让所有对象实例共享它所包含的属性和方法;
+* 基于类的语言中，类就像一个模具；对象由这个模具浇注产生，而基于原型的语言中，原型中有公共的资源，对象可以一直向上一级原型中获得资源。
 
 ### \_\_proto\_\_是指向其原型对象的引用!  
 > 每个对象(函数也是对象)都有一个\_\_proto\_\_属性,当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去\_\_proto\_\_里找这个属性，这个\_\_proto\_\_又会有自己的\_\_proto\_\_，于是就这样一直找下去，也就是我们平时所说的**原型链的概念**。  
@@ -50,6 +51,8 @@
 > * 使自己的对象多次复制，同时实例根据设置的访问等级可以访问其内部的属性和方法
 * 当对象被实例化后，构造函数会立即执行它所包含的任何代码
 * 原型对象也有一个属性，叫做constructor，这个属性包含了一个指针，指回原构造函数。
+*  除非必须用构造函数闭包，否则尽量用原型定义成员函数，因为这样可以减少开支
+* 尽量在构造函数定义一般成员，尤其是对象或者数组，因为用原型定义的成员是多个实例共享的
 
     function myObject(msg){
         //特权属性(公有属性)
@@ -67,7 +70,7 @@
           }
           //公有方法,能被外部公开访问
           //这个方法每次实例化都要重新构造,因而实例越多占用的内存越多,而prototype是原型共享，所有实例化后，都共同引用同一个
-          this.sayAge = function(){
+          this.sayAge = function(){//有闭包开销
              alert(name); //在公有方法中可以访问私有成员
           }
     }
@@ -78,6 +81,8 @@
     myObject.alertname = function(){
         alert(this.name);
     }
+ 	//实例不能调用类型的静态属性或方法，否则发生对象未定义的错误。
+	console.log(obj.alertname);//error 实例不能调用类型的静态属性和方法
     //obj 想访问类的静态属性，先访问该实例的构造函数，然后在访问该类静态属性
     console.log(obj.constructor.name);  
 ### new操作符
@@ -163,7 +168,25 @@ f1和f2是Foo这个对象的两个实例，这两个对象也有属性\_\_proto\
 参考：  
 http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototypes__proto__%E7%AD%89%E6%A6%82%E5%BF%B5%E8%AF%A6%E8%A7%A3/
 
+### prototye 与 constructor
+>使用原型与构造函数的不同
 
+>1. 构造函数内定义的属性继承方式与原型不同，子对象需要显式调用父对象才能继承构造函数内定义的属性；
+2. 构造函数内定义的任何属性，包括函数在内都会被充分创建，同一个构造函数产生的两个对象不共享实例；
+3. 构造函数内定义的函数，有运行时的闭包开销，因为构造函数内的局部变量对其中定义的函数来说也是可见的。
+
+	function Animal(){}
+	var anim = new Animal();
+	console.log(anim.constructor===Animal); //true
+	console.log(Animal.prototype.constructor===Animal); //true
+    console.log(Function.prototype.constructor===Animal.constructor); //true
+	console.log(Function.prototype.constructor===Function); //true		    console.log(Function.constructor===Function.prototype.constructor); //true
+	console.log(Object.prototype.constructor===Object); //true
+	console.log(Object.constructor===Function); //true
+![prototype_constructo的关系图][7]  
+　　上图中，红色箭头表示函数对象的原型的constructor所指向的对象。
+注意Object.constructor===Function；本身Object就是Function函数构造出来的
+如何查找一个对象的constructor，就是在该对象的原型链上寻找碰到的第一个constructor属性所指向的对象。
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/i.png
 [2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/e83bca5f1d1e6bf359d1f75727968c11_b.jpg
@@ -171,3 +194,4 @@ http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototype
 [4]: a.png
 [5]: b.png
 [6]: c.png
+[7]: prototype_constructo.png
