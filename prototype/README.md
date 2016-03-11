@@ -169,7 +169,10 @@ f1和f2是Foo这个对象的两个实例，这两个对象也有属性\_\_proto\
 http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototypes__proto__%E7%AD%89%E6%A6%82%E5%BF%B5%E8%AF%A6%E8%A7%A3/
 
 ### prototye 与 constructor
->使用原型与构造函数的不同
+> * 对象的constructor属性(\_\_proto\_\_中的constructor)引用了该对象的构造函数。即constructor对象就是该对象的类型（创建该对象的类方法）
+* constructor 属性常用于判断未知对象的类型， obj.contructor==="Array"  
+
+使用原型与构造函数的不同
 
 >1. 构造函数内定义的属性继承方式与原型不同，子对象需要显式调用父对象才能继承构造函数内定义的属性；
 2. 构造函数内定义的任何属性，包括函数在内都会被充分创建，同一个构造函数产生的两个对象不共享实例；
@@ -190,7 +193,7 @@ http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototype
 如何查找一个对象的constructor，就是在该对象的原型链上寻找碰到的第一个constructor属性所指向的对象。
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/i.png
-[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/e83bca5f1d1e6bf359d1f75727968c11_b.jpg
+[2]: prototype.png
 [3]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/iii.png
 [4]: a.png
 [5]: b.png
