@@ -43,7 +43,7 @@
     console.log(b.funp());//先去b对象内部找funp方法，找到了，所以调用本对象内部的funp方法； 运行结果：22
     console.log(a.funp());//先去a对象内部找funp方法，没找到，所以从本对象的__proto__对象找，找到了，本对象也有age属性 运行结果：11
     console.log(a.funm());//先去a对象内部找funm方法，找到了，但是a对象本身没有sex属性，所以从__proto__对象找，找到了; 运行结果：男
-![prototyoe图][4]![prototyoe图][5]
+![prototyoe图][4]![prototyoe图][5]![prototyoe图][6]  
 　　理解prototype不应把它和继承混淆。B的prototype为A的一个实例，可以理解B将A中的方法和属性全部克隆了一遍。B能使用A的方法和属性。 这里强调的是克隆而不是继承。可以出现这种情况：A的prototype是B的实例，同时B的prototype也是A的实例。  
   如果B中本身包含有一个与A的方法同名的方法,函数运行时会先去本体的函数中去找，如果找到则运行，找不到则去prototype中寻找函数。或者可以理解为prototype不会克隆同名函数。 
 
@@ -180,8 +180,9 @@ http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototype
 	console.log(anim.constructor===Animal); //true
 	console.log(Animal.prototype.constructor===Animal); //true
     console.log(Function.prototype.constructor===Animal.constructor); //true
-	console.log(Function.prototype.constructor===Function); //true		    console.log(Function.constructor===Function.prototype.constructor); //true
+	console.log(Function.prototype.constructor===Function); //true	                                             
 	console.log(Object.prototype.constructor===Object); //true
+	console.log(Function.constructor===Function.prototype.constructor); //true
 	console.log(Object.constructor===Function); //true
 ![prototype_constructo的关系图][7]  
 　　上图中，红色箭头表示函数对象的原型的constructor所指向的对象。
