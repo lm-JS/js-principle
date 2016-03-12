@@ -157,7 +157,7 @@
 http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototypes__proto__%E7%AD%89%E6%A6%82%E5%BF%B5%E8%AF%A6%E8%A7%A3/
 
 ### prototye 与 constructor
-> * 对象的constructor属性(\_\_proto\_\_中的constructor)引用了该对象的构造函数。即constructor对象就是该对象的类型（创建该对象的类方法）
+> * 函数对象的porototype属性的constructor属性引用了该对象的构造函数。
 * constructor 属性常用于判断未知对象的类型， obj.contructor==="Array"  
 
 使用原型与构造函数的不同
@@ -172,20 +172,21 @@ http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototype
 	console.log(anim.constructor===Animal); //true
 	console.log(anim.__proto__.constructor===Animal); //true
 	console.log(Animal.prototype.constructor===Animal); //true
+	//Animal由Function构造，是Function的函数对象，所以Function.prototype的constructor指向Animal
+	console.log(Animal.constructor===Function);//true
+	//Animal由Function构造Function.prototype 和 都
+    console.log(Animal.constructor===Function.prototype.constructor); //true  
 	//Animal.prototype.__proto__对象由Object构造
 	console.log(Animal.prototype.__proto__.constructor===Object); //true
-	//Animal由Function构造
-	console.log(Animal.constructor===Function);//true
+	
 	//Function.prototype方法由Function构造
-	console.log(Function.prototype.constructor===Function); //true	
-	//Function.prototype 和 Animal都由Function构造
-    console.log(Function.prototype.constructor===Animal.constructor); //true                                             
+	console.log(Function.prototype.constructor===Function); //true	                                           
 	console.log(Object.prototype.constructor===Object); //true
 	console.log(Function.constructor===Function); //true
 	console.log(Function.constructor===Function.prototype.constructor); //true
 	console.log(Object.constructor===Function); //true
 ![prototype_constructo的关系图][7]  
-　　上图中，红色箭头表示函数对象的原型的constructor所指向的对象。
+　　上图中，**红色箭头表示函数对象的原型的constructor所指向的对象**。
 注意Object.constructor===Function；本身Object就是Function函数构造出来的
 如何查找一个对象的constructor，就是在该对象的原型链上寻找碰到的第一个constructor属性所指向的对象。
 
