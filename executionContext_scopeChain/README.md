@@ -1,4 +1,4 @@
-# Javascript 预编译 与 作用域
+# Javascript 执行环境 与 作用域
 > javascript代码在运行前有一个过程就是：预加载，预加载的目的是要事先构造运行环境例如全局环境，函数运行环境，还要构造作用域链，而**执行环境和作用域的构造的核心内容就是明确变量定义，指定好变量属于哪个范畴**，因此在javascript语言里变量的定义是在预加载完成而非在运行时期。
 
 # JS 作用域
@@ -43,6 +43,17 @@
     console.log(b1);// 运行结果：b1
 
 　　这个例子我们发现，ftn2函数可以访问变量b1，b2，这个体现了有权访问的概念，当ftn1作用域里改变了b1的值并且把b1变量重新定义为ftn1的局部变量，那么ftn2访问到的b1就是ftn1的，ftn2访问到b1后就不会在全局作用域里查找b1了，这个体现了有序性。
+
+![scope][3]
+
+　　每个函数对象都有一个内部的 [[scope]] 属性，这个属性也由对象列表（链）组成。这个内部的[[scope]] 属性引用的就是创建它们的执行环境的作用域链，同时，当前执行环境的活动对象被添加到该对象列表的顶部。当我们在函数内部访问变量时，其实就是在作用域链上寻找变量的过程。
+
+1. 载入代码，创建全局执行环境，此时会在可变对象(window)中添加b1和ftn1变量，ftn1指向于函数对象ftn1,此时作用域链中只有window对象.
+2. 执行代码，当程序执行到b1时，会在全局对象中寻找b1变量，成功赋值;当程序执行到outer()时，会在全局对象中寻找outer变量，成功调用。
+3. 创建ftn1的执行环境，此时会新创建一个活动对象，添加变量b2、b1，设置值为"b2"和"bbb",添加变量ftn2，指向于函数对象ftn2.并将活动对象压入作用域链中.并将函数对象ftn1的[[scope]]属性指向活动对象ftn1。此时作用域链为ftn1的活动对象+window.
+4. 执行代码，为 b2,b1 成功赋值。当程序执行到ftn2()时，会在函数对象ftn1的[[scope]]中寻找ftn2变量。找到后成功调用。
+5. 创建ftn2的执行环境，新建一个活动对象，添加变量b3，赋值为"b3",并将该活动对象压入作用域链中，并函数对象ftn2的[[scope]]属性指向活动对象ftn2.此时作用域链为:ftn2的活动对象+ftn1的活动对象+全局对象.
+6. 执行代码为b3赋值，当访问b1、b2、b3时成功在作用域中找到对应的值并输出。
 
     var a = 1;
     function hehe(){
@@ -167,6 +178,6 @@
 ![运行结果][2]
 
 
-[1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/k.png
-[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/prototype/kk.png
-[3]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/constructor/iiii.png
+[1]: k.png
+[2]: kk.png
+[3]: scope.png

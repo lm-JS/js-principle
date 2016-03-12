@@ -52,5 +52,5 @@
 　　**javascript里变量复制和函数传参都是在传递栈区的值。栈区的值除了变量复制起作用，它在if语句里也会起到作用，当栈区的值为undefined、null、“”（空字符串）、0、false时候，if的条件判断则是为false，但是是空对象（{}）的时候，变量栈区的值已经是内存地址了，所以if语句判断就是true了。**
 　　
 　　
-[1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/js-pre-compilation/stack.jpg
-[2]: https://github.com/lm-JS/js-propotype-this-new-apply-call/blob/master/js-pre-compilation/heap.jpg
+[1]: stack.jpg
+[2]: heap.jpg
