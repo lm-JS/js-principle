@@ -157,7 +157,7 @@
 http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototypes__proto__%E7%AD%89%E6%A6%82%E5%BF%B5%E8%AF%A6%E8%A7%A3/
 
 ### prototye 与 constructor
-> * 函数对象的porototype属性的constructor属性引用了该对象的构造函数。
+> * 每个函数都有名为“prototype”的属性，用于引用原型对象。此原型对象又有名为“constructor”的属性，它反过来引用函数本身。
 * constructor 属性常用于判断未知对象的类型， obj.contructor==="Array"  
 
 使用原型与构造函数的不同
