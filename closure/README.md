@@ -35,14 +35,14 @@
 
     var name = "The Window";
     var object = {
-　　　　name : "My Object",
-　　　　getNameFunc : function(){
-　　　　　　return function(){
-　　　　　　　　return this.name;
-　　　　　　};
-　　　　}
-　　};
-　　alert(object.getNameFunc()());//The Window
+    	name : "My Object",
+    	getNameFunc : function(){
+    		return function(){
+    			return this.name;
+    		};
+    	}
+    };
+    alert(object.getNameFunc()());//The Window
  
 
 [1]: https://github.com/lm-JS/js-propotype-this-new-apply-call/tree/master/executionContext_scopeChain 
