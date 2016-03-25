@@ -34,7 +34,7 @@
 
 
     var name = "The Window";
-　　var object = {
+    var object = {
 　　　　name : "My Object",
 　　　　getNameFunc : function(){
 　　　　　　return function(){
